@@ -181,6 +181,13 @@ const CartPage = () => {
                 border: "none",
                 color: "black",
                 padding: "5px 10px",
+                transition: "all 0.3s ease", // Smooth transition for hover effects
+                "&:hover": {
+                  backgroundColor: "#f5f5f5", // Light gray background on hover
+                  color: "#333", // Darker text color for contrast
+                  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)", // Subtle shadow effect
+                  transform: "scale(1.05)", // Slight scale up effect
+                },
               }}
             >
               Clear Cart
@@ -196,6 +203,12 @@ const CartPage = () => {
                 border: "none",
                 color: "white",
                 padding: "5px 10px",
+                transition: "all 0.3s ease", // Smooth transition for hover effects
+                "&:hover": {
+                  backgroundColor: "#333", // Darker shade of black for hover
+                  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)", // Subtle shadow effect
+                  transform: "scale(1.05)", // Slight scale up effect
+                },
               }}
             >
               Place Order

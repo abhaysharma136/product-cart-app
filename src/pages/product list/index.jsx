@@ -74,11 +74,17 @@ const ProductListing = () => {
                     variant="outlined"
                     onClick={() => handleViewDetails(index)}
                     sx={{
-                      borderRadius: 4,
-                      background: "yellow",
+                      borderRadius: 10,
+                      background: "black",
                       border: "none",
-                      color: "black",
-                      padding:"5px 10px"
+                      color: "white",
+                      padding: "10px 15px",
+                      transition: "all 0.3s ease", // Smooth transition for hover effects
+                      "&:hover": {
+                        backgroundColor: "#333", // Darker shade of black for hover
+                        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)", // Subtle shadow effect
+                        transform: "scale(1.05)", // Slight scale up effect
+                      },
                     }}
                   >
                     View Details
