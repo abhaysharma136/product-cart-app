@@ -1,14 +1,23 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, updateQuantity } from "../../redux/cartSlice";
-import { Button, Typography, Card, CardContent } from "@mui/material";
+import { Button, Typography, Card, CardContent, CircularProgress } from "@mui/material";
 import products from "../../products";
+import { useEffect, useState } from "react";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
   const { productId } = useParams();
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true); // Add loading state
+  // Simulate fetching the product
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false); // Set loading to false after data is "fetched"
+    }, 1000); // Simulate a 1 second delay
 
+    return () => clearTimeout(timer); // Clean up the timer
+  }, []);
   // Find the product from the products array
   const product = products.find((prod) => prod.id == productId);
 
@@ -28,6 +37,15 @@ const ProductDetails = () => {
     }
     navigate("/cart");
   };
+  if (loading) {
+    return (
+      <div
+        style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}
+      >
+        <CircularProgress /> {/* Show loader while loading */}
+      </div>
+    );
+  }
 
   return (
     <Card style={{ margin: "20px" }}>
