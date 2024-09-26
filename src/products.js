@@ -30,7 +30,7 @@ const products = [
     {
       id:4,
       name: "Tablet",
-      image: "https://www.fliptwirls.com/wp-content/uploads/2023/09/sk1833.jpg",
+      image: "https://cdn.thewirecutter.com/wp-content/media/2022/12/androidtablets-2048px-firehd8.jpg",
       price: 499.99,
       description: "A portable tablet for entertainment and productivity.",
     },
