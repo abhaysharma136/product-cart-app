@@ -49,7 +49,16 @@ const CartPage = () => {
   };
 
   const handlePlaceOrder = () => {
-    navigate("/success");
+    const orderDetails = {
+      items: cart,
+      total: calculateTotalAmount(),
+    };
+
+    // Clear the cart after storing order details
+    dispatch(clearCart());
+
+    // Navigate to the success page with the order details
+    navigate("/success", { state: { orderDetails } });
   };
 
   // Calculate total amount safely

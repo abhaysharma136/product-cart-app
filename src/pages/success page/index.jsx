@@ -1,37 +1,24 @@
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import {
-  Typography,
-  Card,
-  CardContent,
-  CircularProgress,
-  Box,
-  Divider,
-} from "@mui/material";
+import { useEffect, useState } from "react";
+import { Typography, Card, CardContent, Box, Divider, CircularProgress } from "@mui/material";
+import { useLocation } from "react-router-dom";
 
 const SuccessPage = () => {
-  // Loading state to control the loader
+  const { state } = useLocation();
+  const { orderDetails } = state || { orderDetails: null };
+
   const [loading, setLoading] = useState(true);
 
-  // Selecting the order details from Redux store
-  const orderItems = useSelector((state) => state.cart.items); // Assuming the order items are in the Redux state
-
   useEffect(() => {
-    // Simulate loading with a delay
     const timer = setTimeout(() => {
-      setLoading(false); // Stop loading after data is loaded
-    }, 1000); // Simulate a delay of 1 second
+      setLoading(false);
+    }, 1000);
 
-    return () => clearTimeout(timer); // Clean up the timer on unmount
+    return () => clearTimeout(timer);
   }, []);
 
-  // Function to calculate the total amount safely
   const calculateTotalAmount = () => {
-    if (Array.isArray(orderItems) && orderItems.length > 0) {
-      return orderItems.reduce(
-        (acc, item) => acc + item.price * item.quantity,
-        0
-      );
+    if (orderDetails && Array.isArray(orderDetails.items)) {
+      return orderDetails.total;
     }
     return 0;
   };
@@ -58,7 +45,7 @@ const SuccessPage = () => {
         >
           <CircularProgress />
         </Box>
-      ) : orderItems.length === 0 ? (
+      ) : !orderDetails ? (
         <Typography variant="h4" gutterBottom>
           No order details available.
         </Typography>
@@ -78,7 +65,7 @@ const SuccessPage = () => {
 
           <Divider sx={{ width: "100%", marginBottom: 2 }} />
 
-          {orderItems.map((item) => (
+          {orderDetails.items.map((item) => (
             <Card
               key={item.id}
               sx={{
@@ -88,9 +75,6 @@ const SuccessPage = () => {
                 maxWidth: "500px",
                 borderRadius: "15px",
                 boxShadow: "0 3px 6px rgba(0,0,0,0.1)",
-                "&:hover": {
-                  boxShadow: "0 5px 15px rgba(0,0,0,0.2)",
-                },
               }}
             >
               <CardContent sx={{ display: "flex", alignItems: "center" }}>
