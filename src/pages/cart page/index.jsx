@@ -10,7 +10,10 @@ import {
   TextField,
   CircularProgress,
   Box,
+  ButtonGroup,
 } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {
@@ -59,7 +62,14 @@ const CartPage = () => {
   return (
     <div style={{ padding: "20px" }}>
       {loading ? (
-        <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "50vh" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            minHeight: "50vh",
+          }}
+        >
           <CircularProgress />
         </Box>
       ) : cart.length === 0 ? (
@@ -78,23 +88,56 @@ const CartPage = () => {
             <Card key={item.id} sx={{ marginBottom: 2 }}>
               <CardContent>
                 <Typography variant="h6">{item.name}</Typography>
-                <img src={item.image} alt={item.name} width="100" height="100" />
-                <Typography variant="body1">Price: ${item.price.toFixed(2)}</Typography>
-                <TextField
-                  type="number"
-                  value={item.quantity}
-                  onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
-                  inputProps={{ min: 1 }}
-                  sx={{ width: "60px", marginRight: "10px" }}
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  width="100"
+                  height="100"
                 />
-                <IconButton color="secondary" onClick={() => handleRemove(item.id)}>
+                <Typography variant="body1">
+                  Price: ${item.price.toFixed(2)}
+                </Typography>
+                <ButtonGroup size="small" sx={{ marginRight: "10px" }}>
+                  <IconButton
+                    aria-label="decrease quantity"
+                    onClick={() =>
+                      handleQuantityChange(item.id, item.quantity - 1)
+                    }
+                    disabled={item.quantity === 1}
+                  >
+                    <RemoveIcon />
+                  </IconButton>
+
+                  <TextField
+                    type="number"
+                    value={item.quantity}
+                    inputProps={{ readOnly: true, min: 1 }}
+                    sx={{ width: "60px", textAlign: "center" }}
+                  />
+
+                  <IconButton
+                    aria-label="increase quantity"
+                    onClick={() =>
+                      handleQuantityChange(item.id, item.quantity + 1)
+                    }
+                  >
+                    <AddIcon />
+                  </IconButton>
+                </ButtonGroup>
+
+                <IconButton
+                  color="secondary"
+                  onClick={() => handleRemove(item.id)}
+                >
                   Remove
                 </IconButton>
               </CardContent>
             </Card>
           ))}
 
-          <Typography variant="h5">Total: ${calculateTotalAmount().toFixed(2)}</Typography>
+          <Typography variant="h5">
+            Total: ${calculateTotalAmount().toFixed(2)}
+          </Typography>
 
           <Button
             variant="contained"
@@ -105,7 +148,11 @@ const CartPage = () => {
             Clear Cart
           </Button>
 
-          <Button variant="contained" color="primary" onClick={handlePlaceOrder}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handlePlaceOrder}
+          >
             Place Order
           </Button>
         </>
