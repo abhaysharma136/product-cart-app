@@ -5,15 +5,16 @@ import {
   Button,
   Typography,
   Card,
-  CardContent,
   IconButton,
-  TextField,
   CircularProgress,
   Box,
   ButtonGroup,
+  Grid,
+  Divider,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {
@@ -23,7 +24,7 @@ const CartPage = () => {
   // Loading state to control the loader
   const [loading, setLoading] = useState(true);
 
-  // Selecting cart items and total amount from Redux store
+  // Selecting cart items from the Redux store
   const cart = useSelector((state) => state.cart.items);
 
   useEffect(() => {
@@ -60,7 +61,7 @@ const CartPage = () => {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <Box sx={{ padding: "20px" }}>
       {loading ? (
         <Box
           sx={{
@@ -73,91 +74,127 @@ const CartPage = () => {
           <CircularProgress />
         </Box>
       ) : cart.length === 0 ? (
-        <>
-          <Typography variant="h4" gutterBottom>
-            Your Cart is Empty. Add something to your Cart.
-          </Typography>
-        </>
+        <Typography variant="h4" gutterBottom>
+          Your Cart is Empty. Add something to your Cart.
+        </Typography>
       ) : (
         <>
           <Typography variant="h4" gutterBottom>
             Your Cart
           </Typography>
 
+          <Divider sx={{ marginBottom: "20px" }} />
+
           {cart.map((item) => (
-            <Card key={item.id} sx={{ marginBottom: 2 }}>
-              <CardContent>
-                <Typography variant="h6">{item.name}</Typography>
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  width="100"
-                  height="100"
-                />
-                <Typography variant="body1">
-                  Price: ${item.price.toFixed(2)}
-                </Typography>
-                <ButtonGroup size="small" sx={{ marginRight: "10px" }}>
-                  <IconButton
-                    aria-label="decrease quantity"
-                    onClick={() =>
-                      handleQuantityChange(item.id, item.quantity - 1)
-                    }
-                    disabled={item.quantity === 1}
-                  >
-                    <RemoveIcon />
-                  </IconButton>
-
-                  <TextField
-                    type="number"
-                    value={item.quantity}
-                    inputProps={{ readOnly: true, min: 1 }}
-                    sx={{ width: "60px", textAlign: "center" }}
+            <Card key={item.id} sx={{ marginBottom: 2, padding: 2 }}>
+              <Grid container spacing={2} alignItems="center">
+                {/* Product Image */}
+                <Grid item xs={12} sm={3}>
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    style={{ width: "100%", borderRadius: 8 }}
                   />
+                </Grid>
 
+                {/* Product Details */}
+                <Grid item xs={12} sm={6}>
+                  <Typography variant="h6">{item.name}</Typography>
+                  <Typography variant="body1">
+                    Price: ${item.price.toFixed(2)}
+                  </Typography>
+                </Grid>
+
+                {/* Quantity Controls */}
+                <Grid item xs={12} sm={3} textAlign="center">
+                  <ButtonGroup size="small" aria-label="quantity control">
+                    <IconButton
+                      aria-label="decrease quantity"
+                      onClick={() =>
+                        handleQuantityChange(item.id, item.quantity - 1)
+                      }
+                      disabled={item.quantity === 1}
+                    >
+                      <RemoveIcon />
+                    </IconButton>
+
+                    <Box
+                      sx={{
+                        display: "inline-flex",
+                        width: "50px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Typography variant="body1">{item.quantity}</Typography>
+                    </Box>
+
+                    <IconButton
+                      aria-label="increase quantity"
+                      onClick={() =>
+                        handleQuantityChange(item.id, item.quantity + 1)
+                      }
+                    >
+                      <AddIcon />
+                    </IconButton>
+                  </ButtonGroup>
+
+                  {/* Remove Button */}
                   <IconButton
-                    aria-label="increase quantity"
-                    onClick={() =>
-                      handleQuantityChange(item.id, item.quantity + 1)
-                    }
+                    color="secondary"
+                    onClick={() => handleRemove(item.id)}
+                    sx={{ marginLeft: "20px" }}
                   >
-                    <AddIcon />
+                    <DeleteIcon />
                   </IconButton>
-                </ButtonGroup>
-
-                <IconButton
-                  color="secondary"
-                  onClick={() => handleRemove(item.id)}
-                >
-                  Remove
-                </IconButton>
-              </CardContent>
+                </Grid>
+              </Grid>
             </Card>
           ))}
 
-          <Typography variant="h5">
+          <Divider sx={{ marginY: "20px" }} />
+
+          <Typography variant="h5" align="right" gutterBottom>
             Total: ${calculateTotalAmount().toFixed(2)}
           </Typography>
 
-          <Button
-            variant="contained"
-            color="secondary"
-            onClick={handleClearCart}
-            sx={{ marginRight: "10px" }}
+          <Box
+            sx={{ display: "flex", justifyContent: "flex-end", marginTop: 2 }}
           >
-            Clear Cart
-          </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={handleClearCart}
+              sx={{
+                marginRight: "10px",
+                borderRadius: 10,
+                background: "white",
+                border: "none",
+                color: "black",
+                padding: "5px 10px",
+              }}
+            >
+              Clear Cart
+            </Button>
 
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handlePlaceOrder}
-          >
-            Place Order
-          </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handlePlaceOrder}
+              sx={{
+                borderRadius: 10,
+                background: "black",
+                border: "none",
+                color: "white",
+                padding: "5px 10px",
+              }}
+            >
+              Place Order
+            </Button>
+          </Box>
         </>
       )}
-    </div>
+    </Box>
   );
 };
 

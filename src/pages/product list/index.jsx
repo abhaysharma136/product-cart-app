@@ -16,7 +16,7 @@ import styles from "./productList.module.css";
 
 const ProductListing = () => {
   const navigate = useNavigate();
-  
+
   // Loading state to control the loader
   const [loading, setLoading] = useState(true);
 
@@ -38,7 +38,14 @@ const ProductListing = () => {
     <div style={{ padding: "20px" }}>
       {loading ? (
         // Display the loader when loading is true
-        <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "80vh" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            minHeight: "80vh",
+          }}
+        >
           <CircularProgress />
         </Box>
       ) : (
@@ -46,7 +53,7 @@ const ProductListing = () => {
         <Grid container spacing={3}>
           {products.map((product, index) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-              <Card sx={{ maxWidth: 345 }}>
+              <Card sx={{ maxWidth: 345, borderRadius: 5 }}>
                 <CardMedia
                   component="img"
                   height="200"
@@ -66,6 +73,13 @@ const ProductListing = () => {
                     size="small"
                     variant="outlined"
                     onClick={() => handleViewDetails(index)}
+                    sx={{
+                      borderRadius: 4,
+                      background: "yellow",
+                      border: "none",
+                      color: "black",
+                      padding:"5px 10px"
+                    }}
                   >
                     View Details
                   </Button>

@@ -8,11 +8,13 @@ import { useSelector } from "react-redux";
 const Navbar = () => {
   const navigate = useNavigate();
   // Access totalItems from Redux store
-  const totalItems = useSelector((state) => state.cart.items.reduce((sum, item) => sum + item.quantity, 0));
+  const totalItems = useSelector((state) =>
+    state.cart.items.reduce((sum, item) => sum + item.quantity, 0)
+  );
 
   // Function to handle back button click
   const handleBackClick = () => {
-    navigate('/'); // This will navigate to the previous page
+    navigate(-1); // This will navigate to the previous page
   };
 
   return (
@@ -29,7 +31,12 @@ const Navbar = () => {
         </IconButton>
 
         {/* Title or Logo */}
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{ flexGrow: 1, cursor: "pointer" }}
+          onClick={() => navigate("/")}
+        >
           My Store
         </Typography>
 

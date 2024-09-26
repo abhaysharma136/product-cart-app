@@ -6,6 +6,7 @@ import {
   CardContent,
   CircularProgress,
   Box,
+  Divider,
 } from "@mui/material";
 
 const SuccessPage = () => {
@@ -36,7 +37,16 @@ const SuccessPage = () => {
   };
 
   return (
-    <div style={{ padding: "20px", textAlign: "center" }}>
+    <Box
+      sx={{
+        padding: "20px",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       {loading ? (
         <Box
           sx={{
@@ -54,43 +64,80 @@ const SuccessPage = () => {
         </Typography>
       ) : (
         <>
-          <Typography variant="h4" gutterBottom>
-            Thank you for your order!
+          <Typography
+            variant="h4"
+            gutterBottom
+            sx={{ color: "green", fontWeight: "bold" }}
+          >
+            Thank You for Your Order!
           </Typography>
 
           <Typography variant="h6" gutterBottom>
             Order Summary
           </Typography>
 
+          <Divider sx={{ width: "100%", marginBottom: 2 }} />
+
           {orderItems.map((item) => (
-            <Card key={item.id} sx={{ marginBottom: 2 }}>
-              <CardContent>
-                <Typography variant="h6">{item.name}</Typography>
+            <Card
+              key={item.id}
+              sx={{
+                marginBottom: 2,
+                padding: 2,
+                width: "100%",
+                maxWidth: "500px",
+                borderRadius: "15px",
+                boxShadow: "0 3px 6px rgba(0,0,0,0.1)",
+                "&:hover": {
+                  boxShadow: "0 5px 15px rgba(0,0,0,0.2)",
+                },
+              }}
+            >
+              <CardContent sx={{ display: "flex", alignItems: "center" }}>
                 <img
                   src={item.image}
                   alt={item.name}
-                  width="100"
-                  height="100"
+                  style={{
+                    width: "80px",
+                    height: "80px",
+                    borderRadius: "10px",
+                    marginRight: "20px",
+                  }}
                 />
-                <Typography variant="body1">
-                  Price: ${item.price.toFixed(2)}
-                </Typography>
-                <Typography variant="body1">
-                  Quantity: {item.quantity}
-                </Typography>
-                <Typography variant="body1">
-                  Total: ${(item.price * item.quantity).toFixed(2)}
-                </Typography>
+                <Box>
+                  <Typography variant="h6" sx={{ fontWeight: "500" }}>
+                    {item.name}
+                  </Typography>
+                  <Typography variant="body1">
+                    Price: ${item.price.toFixed(2)}
+                  </Typography>
+                  <Typography variant="body1">Quantity: {item.quantity}</Typography>
+                  <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+                    Total: ${(item.price * item.quantity).toFixed(2)}
+                  </Typography>
+                </Box>
               </CardContent>
             </Card>
           ))}
 
-          <Typography variant="h5" sx={{ marginTop: "20px" }}>
+          <Divider sx={{ width: "100%", marginTop: 2, marginBottom: 2 }} />
+
+          <Typography
+            variant="h5"
+            sx={{
+              marginTop: "20px",
+              fontWeight: "600",
+              color: "#2e7d32",
+              border: "1px solid #2e7d32",
+              padding: "10px 20px",
+              borderRadius: "10px",
+            }}
+          >
             Total Cost: ${calculateTotalAmount().toFixed(2)}
           </Typography>
         </>
       )}
-    </div>
+    </Box>
   );
 };
 
