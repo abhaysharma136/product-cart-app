@@ -1,6 +1,5 @@
 import { Box, Grid, Typography, Select, MenuItem } from "@mui/material";
 import { useState } from "react";
-import styles from "./Announcement.module.css";
 export default function AnnouncementBar() {
   const [age, setAge] = useState(10);
   const handleChange = (event) => {
