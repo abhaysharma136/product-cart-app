@@ -9,14 +9,15 @@ import {
   CircularProgress,
   Box,
   ButtonGroup,
-  Grid,
   Divider,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useNavigate } from "react-router-dom";
-
+import styles from "./cart.module.css";
+import discountIcon from "../../assets/icons/discount.png";
+import arrowRight from "../../assets/icons/right-arrow.png";
 const CartPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -70,7 +71,7 @@ const CartPage = () => {
   };
 
   return (
-    <Box sx={{ padding: "20px" }}>
+    <>
       {loading ? (
         <Box
           sx={{
@@ -83,72 +84,79 @@ const CartPage = () => {
           <CircularProgress />
         </Box>
       ) : cart.length === 0 ? (
-        <Typography variant="h4" gutterBottom>
-          Your Cart is Empty. Add something to your Cart.
-        </Typography>
-      ) : (
-        <>
+        <Box sx={{ padding: "20px" }}>
           <Typography variant="h4" gutterBottom>
-            Your Cart
+            Your Cart is Empty. Add something to your Cart.
           </Typography>
-
+        </Box>
+      ) : (
+        <Box sx={{ padding: "20px" }}>
+          <Typography variant="h5" gutterBottom>
+            Your cart
+          </Typography>
           <Divider sx={{ marginBottom: "20px" }} />
+          <div>
+            <Typography variant="h6">Review cart</Typography>
+            <Card sx={{ marginBottom: 2, padding: 2, borderRadius: "20px" }}>
+              {cart.map((item, index) => (
+                <div className={styles.cartProductDetailsContainer} key={index}>
+                  {/* Product Image */}
+                  <div className={styles.productImageContainer}>
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      style={{ width: "80%", borderRadius: 8 }}
+                    />
+                  </div>
 
-          {cart.map((item) => (
-            <Card key={item.id} sx={{ marginBottom: 2, padding: 2 }}>
-              <Grid container spacing={2} alignItems="center">
-                {/* Product Image */}
-                <Grid item xs={12} sm={3}>
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    style={{ width: "100%", borderRadius: 8 }}
-                  />
-                </Grid>
-
-                {/* Product Details */}
-                <Grid item xs={12} sm={6}>
-                  <Typography variant="h6">{item.name}</Typography>
-                  <Typography variant="body1">
-                    Price: ${item.price.toFixed(2)}
-                  </Typography>
-                </Grid>
-
-                {/* Quantity Controls */}
-                <Grid item xs={12} sm={3} textAlign="center">
-                  <ButtonGroup size="small" aria-label="quantity control">
-                    <IconButton
-                      aria-label="decrease quantity"
-                      onClick={() =>
-                        handleQuantityChange(item.id, item.quantity - 1)
-                      }
-                      disabled={item.quantity === 1}
-                    >
-                      <RemoveIcon />
-                    </IconButton>
-
-                    <Box
+                  <div className={styles.nameQuantityTextContainer}>
+                    <Typography variant="h5">{item.name}</Typography>
+                    <Typography variant="h6">1 Kg</Typography>
+                  </div>
+                  <div>
+                    <ButtonGroup
+                      size="small"
+                      aria-label="quantity control"
                       sx={{
-                        display: "inline-flex",
-                        width: "50px",
-                        justifyContent: "center",
-                        alignItems: "center",
+                        background: "yellow",
+                        borderRadius: "20px",
+                        width: "100px",
                       }}
                     >
-                      <Typography variant="body1">{item.quantity}</Typography>
-                    </Box>
+                      <IconButton
+                        aria-label="decrease quantity"
+                        onClick={() =>
+                          handleQuantityChange(item.id, item.quantity - 1)
+                        }
+                        disabled={item.quantity === 1}
+                      >
+                        <RemoveIcon />
+                      </IconButton>
 
-                    <IconButton
-                      aria-label="increase quantity"
-                      onClick={() =>
-                        handleQuantityChange(item.id, item.quantity + 1)
-                      }
-                    >
-                      <AddIcon />
-                    </IconButton>
-                  </ButtonGroup>
+                      <Box
+                        sx={{
+                          display: "inline-flex",
+                          width: "50px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <Typography variant="body1">{item.quantity}</Typography>
+                      </Box>
 
-                  {/* Remove Button */}
+                      <IconButton
+                        aria-label="increase quantity"
+                        onClick={() =>
+                          handleQuantityChange(item.id, item.quantity + 1)
+                        }
+                      >
+                        <AddIcon />
+                      </IconButton>
+                    </ButtonGroup>
+                  </div>
+                  <Typography variant="body1" sx={{ marginLeft: "5px" }}>
+                    ₹{item.price.toFixed(2)}
+                  </Typography>
                   <IconButton
                     color="secondary"
                     onClick={() => handleRemove(item.id)}
@@ -156,17 +164,73 @@ const CartPage = () => {
                   >
                     <DeleteIcon />
                   </IconButton>
-                </Grid>
-              </Grid>
+                </div>
+              ))}
             </Card>
-          ))}
-
-          <Divider sx={{ marginY: "20px" }} />
-
-          <Typography variant="h5" align="right" gutterBottom>
-            Total: ${calculateTotalAmount().toFixed(2)}
-          </Typography>
-
+          </div>
+          <Divider sx={{ marginBottom: "20px" }} />
+          <Card sx={{ marginBottom: 2, padding: 2, borderRadius: "20px" }}>
+            <div className={styles.couponContainer}>
+              <img src={discountIcon} alt="discountIcon" />
+              <div>
+                <Typography variant="h5">View coupons & Offers</Typography>
+                <Typography variant="h6">
+                  Add ₹20 more to save ₹250 on this order
+                </Typography>
+              </div>
+              <img src={arrowRight} alt="rightArrow" />
+            </div>
+          </Card>
+          <Card
+            sx={{ marginBottom: 2, padding: 2, borderRadius: "20px" }}
+            className={styles.billDetailsContainer}
+          >
+            <Typography variant="h3" sx={{ marginBottom: "10px" }}>
+              Bill details
+            </Typography>
+            <div>
+              <Typography variant="h5">Item total</Typography>
+              <Typography variant="h4">
+                ₹{calculateTotalAmount().toFixed(2)}
+              </Typography>
+            </div>
+            <Divider />
+            <div>
+              <Typography variant="h5" sx={{ color: "green" }}>
+                Savings
+              </Typography>
+              <Typography variant="h4" sx={{ color: "green" }}>
+                -₹92
+              </Typography>
+            </div>
+            <div>
+              <Typography variant="h5" sx={{ color: "green" }}>
+                Coupon used
+              </Typography>
+              <Typography variant="h4" sx={{ color: "green" }}>
+                -₹250
+              </Typography>
+            </div>
+            <Divider />
+            <div>
+              <Typography variant="h5">PAID ONLINE</Typography>
+              <Typography variant="h4">₹821</Typography>
+            </div>
+          </Card>
+          <Divider sx={{ marginBottom: "20px" }} />
+          <Card
+            sx={{ marginBottom: 2, padding: 2, borderRadius: "20px" }}
+            className={styles.policyContainer}
+          >
+            <Typography variant="h5">Cancellation policy</Typography>
+            <Typography variant="h6">
+              Orders cannot be cancelled and are non refundable once packed for
+              delevery.
+            </Typography>
+            <Typography variant="h6">
+              Review your order before making a payment to avoid cancellation.
+            </Typography>
+          </Card>
           <Box
             sx={{ display: "flex", justifyContent: "flex-end", marginTop: 2 }}
           >
@@ -185,7 +249,7 @@ const CartPage = () => {
                 "&:hover": {
                   backgroundColor: "#f5f5f5",
                   color: "#333",
-                  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)", 
+                  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
                   transform: "scale(1.05)",
                 },
               }}
@@ -199,13 +263,13 @@ const CartPage = () => {
               onClick={handlePlaceOrder}
               sx={{
                 borderRadius: 10,
-                background: "black",
+                background: "yellow",
                 border: "none",
-                color: "white",
+                color: "black",
                 padding: "5px 10px",
                 transition: "all 0.3s ease", // Smooth transition for hover effects
                 "&:hover": {
-                  backgroundColor: "#333", // Darker shade of black for hover
+                  backgroundColor: "yellow", // Darker shade of black for hover
                   boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)", // Subtle shadow effect
                   transform: "scale(1.05)", // Slight scale up effect
                 },
@@ -214,9 +278,9 @@ const CartPage = () => {
               Place Order
             </Button>
           </Box>
-        </>
+        </Box>
       )}
-    </Box>
+    </>
   );
 };
 

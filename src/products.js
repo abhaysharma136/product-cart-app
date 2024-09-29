@@ -1,67 +1,74 @@
 const products = [
   {
     id: 0,
-    name: "Smartphone",
+    name: "Ooty carrots",
     image:
-      "https://images.unsplash.com/photo-1521939094609-93aba1af40d7?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YW5kcm9pZHxlbnwwfHwwfHx8MA%3D%3D",
-    price: 699.99,
-    description: "A sleek smartphone with the latest technology.",
+      "https://im.pluckk.in/unsafe/300x0/uploads/25016-ooty-carrot-jio.png",
+    price: 28,
+    description:
+      "Ooty carrots are a type of carrot grown in the Nilgiris district of Tamil Nadu, India. They are known for their sweet, minty flavor, crunchy texture, and vibrant orange color. Ooty carrots are a staple in South Indian cuisine and can be used in a variety of dishes",
   },
   {
     id: 1,
-    name: "Laptop",
+    name: "Mint Leaves",
     image:
-      "https://cdn.pixabay.com/photo/2016/02/17/15/37/laptop-1205256_1280.jpg",
-    price: 999.99,
-    description: "A powerful laptop for work and play.",
+      "https://media.post.rvohealth.io/wp-content/uploads/sites/3/2020/02/266128_2200-732x549.jpg",
+    price: 11,
+    description:
+      "Mints have square stems and opposite aromatic leaves. Many can spread vegetatively by stolons and can be aggressive in gardens. The small flowers are usually pale purple, pink, or white in colour and are arranged in clusters, either forming whorls or crowded together in a terminal spike.",
   },
   {
     id: 2,
-    name: "Headphones",
+    name: "Green Chilli",
     image:
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aGVhZHBob25lc3xlbnwwfHwwfHx8MA%3D%3D",
-    price: 199.99,
-    description: "High-quality headphones with noise cancellation.",
+      "https://cdn.justgotochef.com/uploads/1555911402-Green%20ChilliGTC.png?w=633&h=381&fit=crop",
+    price: 26,
+    description:
+      "Green chillies are hollow, and the pith and seeds are the hottest part. Green chillies have a different flavour to other coloured chillies. Chilli heat is related to capsaicin content and measured in Scoville units.",
   },
   {
     id: 3,
-    name: "Smartwatch",
+    name: "Tmoato Hybrid",
     image:
-      "https://mtechmart.com/images/thumbs/004/0042600_boat-wave-electra-smart-watch-with-181-hd-display-smart-calling-with-ultra-seamless-bt-calling-chip2_510.jpeg",
-    price: 249.99,
-    description: "Track your fitness and stay connected on the go.",
+      "https://homedelivery.ramachandran.in/media/catalog/product/cache/04c5c5c4276fe9dba74400abc896c29c/4/9/491226A001003_Tomato-Hybrid.jpg",
+    price: 28,
+    description:
+      "Description. Tomato Hybrid are oval in shape and the size ranges between 5 to 7cm. They have thick orange to red colored skin with meaty flesh that gives a blend of both sweet and sour taste.",
   },
   {
     id: 4,
-    name: "Tablet",
+    name: "Coriander",
     image:
-      "https://cdn.thewirecutter.com/wp-content/media/2022/12/androidtablets-2048px-firehd8.jpg",
-    price: 499.99,
-    description: "A portable tablet for entertainment and productivity.",
+      "https://www.collinsdictionary.com/images/full/corriander_357862757.jpg",
+    price: 26,
+    description:
+      "coriander, (Coriandrum sativum), feathery annual plant of the parsley family (Apiaceae), parts of which are used as both an herb and a spice. Native to the Mediterranean and Middle East regions, the plant is widely cultivated in many places worldwide for its culinary uses.",
   },
   {
     id: 5,
-    name: "Bluetooth Speaker",
+    name: "Green peas",
     image:
-      "https://media.istockphoto.com/id/1059154330/photo/boombox.jpg?s=612x612&w=0&k=20&c=AYwVrPpREeFXXP0j8rC8R3eF_9WUVghBXPndGqZYSJw=",
-    price: 149.99,
-    description: "Enjoy high-quality sound wherever you go.",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkpPT9AZ_GEWuTQz4Wpx1Ze7NNsIZkZrgvOw&s",
+    price: 35,
+    description:
+      "Green peas, or “garden peas,” are the small, spherical seeds that come from pods produced by the Pisum sativum plant. They have been part of the human diet for hundreds of years and are consumed all over the world. Strictly speaking, green peas are not vegetables.",
   },
   {
     id: 6,
-    name: "Camera",
+    name: "Green Onion",
     image:
-      "https://c0.wallpaperflare.com/preview/926/471/791/person-holding-dslr-camera.jpg",
-    price: 799.99,
-    description: "Capture stunning photos and videos with ease.",
+      "https://www.collinsdictionary.com/images/full/greenonion_104473274.jpg",
+    price: 30,
+    description:
+      "Scallions (also known as green onions and spring onions) are edible vegetables of various species in the genus Allium. Scallions generally have a milder taste than most onions. Their close relatives include garlic, shallots, leeks, chives, and Chinese onions.",
   },
   {
     id: 7,
-    name: "Gaming Console",
+    name: "Beet Root",
     image:
-      "https://hgworld.in/wp-content/uploads/2024/03/Screenshot-2024-03-06-134057.jpg",
-    price: 399.99,
-    description: "Experience immersive gaming at home.",
+      "https://www.collinsdictionary.com/images/full/beetroot_138923807.jpg",
+    price: 27,
+    description: "Beets, Beta vulgaris, are herbaceous biennial root vegetables in the family Chenopodiaceae grown for their edible root and young leaves. The plant is usually erect with a long main root and a rosette of leaves growing on stems.",
   },
   {
     id: 8,
@@ -74,11 +81,11 @@ const products = [
   },
   {
     id: 9,
-    name: "Fitness Tracker",
+    name: "Broccoli",
     image:
-      "https://t4.ftcdn.net/jpg/08/05/16/07/360_F_805160787_63LVycCQCyond4MfLFmGHBZIDLPg9jGU.jpg",
-    price: 99.99,
-    description: "Monitor your health and stay active with this tracker.",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToKRjdqQGfvSRls_X4NWFu6WOxr4afNoynrQ&s",
+    price: 40,
+    description: "Broccoli (Brassica oleracea var. italica) is an edible green plant in the cabbage family (family Brassicaceae, genus Brassica) whose large flowering head, stalk and small associated leaves are eaten as a vegetable. Broccoli is classified in the Italica cultivar group of the species Brassica oleracea.",
   },
 ];
 

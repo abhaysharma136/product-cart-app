@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, updateQuantity } from "../../redux/cartSlice";
 import { Button, Typography, CircularProgress } from "@mui/material";
@@ -6,9 +6,9 @@ import products from "../../products";
 import { useEffect, useState } from "react";
 import styles from "./productDetails.module.css";
 import AddIcon from "@mui/icons-material/Add";
-
+import badge1 from "../../assets/icons/badge1.png";
+import badge2 from "../../assets/icons/badge2.png";
 const ProductDetails = () => {
-  const navigate = useNavigate();
   const { productId } = useParams();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true); // Add loading state
@@ -39,7 +39,6 @@ const ProductDetails = () => {
       // If the item is not in the cart, add it
       dispatch(addItem({ ...product, quantity: 1 }));
     }
-    navigate("/cart");
   };
 
   if (loading) {
@@ -101,7 +100,7 @@ const ProductDetails = () => {
             <div className={styles.storingInfoItem}>
               <div className={styles.storingInfoCard}>
                 <div>
-                  <AddIcon />
+                  <img src={badge1} alt="badge1" width={30} />
                 </div>
                 <div>
                   <div>10 Days</div>
@@ -110,7 +109,7 @@ const ProductDetails = () => {
               </div>
               <div className={styles.storingInfoCard}>
                 <div>
-                  <AddIcon />
+                  <img src={badge2} alt="badge2" width={30} />
                 </div>
                 <div>
                   <div>3 Weeks</div>
