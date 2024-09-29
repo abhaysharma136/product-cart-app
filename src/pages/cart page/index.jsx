@@ -22,7 +22,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./cart.module.css";
 import discountIcon from "../../assets/icons/discount.png";
 import arrowRight from "../../assets/icons/right-arrow.png";
-
+import PropTypes from "prop-types"; // Import PropTypes for prop validation
 const CartPage = ({ toggleDrawer }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -344,6 +344,9 @@ const CartPage = ({ toggleDrawer }) => {
       )}
     </>
   );
+};
+CartPage.propTypes = {
+  toggleDrawer: PropTypes.func.isRequired,
 };
 
 // Export default the updated component
