@@ -10,15 +10,20 @@ import {
   Box,
   ButtonGroup,
   Divider,
+  AppBar,
+  Toolbar,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import DeleteIcon from "@mui/icons-material/Delete";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import CloseIcon from "@mui/icons-material/Close";
 import { useNavigate } from "react-router-dom";
 import styles from "./cart.module.css";
 import discountIcon from "../../assets/icons/discount.png";
 import arrowRight from "../../assets/icons/right-arrow.png";
-const CartPage = () => {
+
+const CartPage = ({ toggleDrawer }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -85,15 +90,66 @@ const CartPage = () => {
         </Box>
       ) : cart.length === 0 ? (
         <Box sx={{ padding: "20px" }}>
+          <AppBar position="static" color="default" sx={{ boxShadow: "none" }}>
+            <Toolbar sx={{ justifyContent: "space-between" }}>
+              <IconButton
+                edge="start"
+                color="inherit"
+                aria-label="back"
+                onClick={() => toggleDrawer(false)()}
+              >
+                <ArrowBackIcon />
+              </IconButton>
+              <Typography
+                variant="h5"
+                sx={{ flexGrow: 1, textAlign: "center" }}
+              >
+                Your Cart
+              </Typography>
+              <IconButton
+                edge="end"
+                color="inherit"
+                aria-label="close"
+                onClick={() => toggleDrawer(false)()}
+              >
+                <CloseIcon />
+              </IconButton>
+            </Toolbar>
+          </AppBar>
           <Typography variant="h4" gutterBottom>
             Your Cart is Empty. Add something to your Cart.
           </Typography>
         </Box>
       ) : (
         <Box sx={{ padding: "20px" }}>
-          <Typography variant="h5" gutterBottom>
-            Your cart
-          </Typography>
+          {/* Header with Back Arrow and Close Button */}
+          <AppBar position="static" color="default" sx={{ boxShadow: "none" }}>
+            <Toolbar sx={{ justifyContent: "space-between" }}>
+              <IconButton
+                edge="start"
+                color="inherit"
+                aria-label="back"
+                onClick={() => toggleDrawer(false)()}
+              >
+                <ArrowBackIcon />
+              </IconButton>
+              <Typography
+                variant="h5"
+                sx={{ flexGrow: 1, textAlign: "center" }}
+              >
+                Your Cart
+              </Typography>
+              <IconButton
+                edge="end"
+                color="inherit"
+                aria-label="close"
+                onClick={() => toggleDrawer(false)()}
+              >
+                <CloseIcon />
+              </IconButton>
+            </Toolbar>
+          </AppBar>
+
           <Divider sx={{ marginBottom: "20px" }} />
           <div>
             <Typography variant="h6">Review cart</Typography>
@@ -169,6 +225,7 @@ const CartPage = () => {
             </Card>
           </div>
           <Divider sx={{ marginBottom: "20px" }} />
+          {/* Coupon and Offers Card */}
           <Card sx={{ marginBottom: 2, padding: 2, borderRadius: "20px" }}>
             <div className={styles.couponContainer}>
               <img src={discountIcon} alt="discountIcon" />
@@ -181,6 +238,8 @@ const CartPage = () => {
               <img src={arrowRight} alt="rightArrow" />
             </div>
           </Card>
+
+          {/* Bill Details */}
           <Card
             sx={{ marginBottom: 2, padding: 2, borderRadius: "20px" }}
             className={styles.billDetailsContainer}
@@ -217,20 +276,23 @@ const CartPage = () => {
               <Typography variant="h4">₹821</Typography>
             </div>
           </Card>
-          <Divider sx={{ marginBottom: "20px" }} />
+
+          {/* Cancellation Policy */}
           <Card
             sx={{ marginBottom: 2, padding: 2, borderRadius: "20px" }}
             className={styles.policyContainer}
           >
             <Typography variant="h5">Cancellation policy</Typography>
             <Typography variant="h6">
-              Orders cannot be cancelled and are non refundable once packed for
-              delevery.
+              Orders cannot be cancelled and are non-refundable once packed for
+              delivery.
             </Typography>
             <Typography variant="h6">
               Review your order before making a payment to avoid cancellation.
             </Typography>
           </Card>
+
+          {/* Action Buttons */}
           <Box
             sx={{ display: "flex", justifyContent: "flex-end", marginTop: 2 }}
           >
@@ -269,7 +331,7 @@ const CartPage = () => {
                 padding: "5px 10px",
                 transition: "all 0.3s ease", // Smooth transition for hover effects
                 "&:hover": {
-                  backgroundColor: "yellow", // Darker shade of black for hover
+                  backgroundColor: "yellow",
                   boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)", // Subtle shadow effect
                   transform: "scale(1.05)", // Slight scale up effect
                 },
@@ -284,4 +346,5 @@ const CartPage = () => {
   );
 };
 
+// Export default the updated component
 export default CartPage;
