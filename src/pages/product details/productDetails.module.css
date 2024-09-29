@@ -144,7 +144,6 @@
 @media (max-width: 768px) {
     .innerMainContainer {
         flex-direction: column;
-        /* Stack image and details vertically on smaller screens */
         align-items: center;
     }
 

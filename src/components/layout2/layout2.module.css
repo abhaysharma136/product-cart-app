@@ -6,60 +6,59 @@
     min-height: 500px;
     gap: 20px;
     padding: 20px;
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    flex-wrap: wrap;
 }
 
 .elementContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; /* Reduced gap for better compactness */
+    gap: 15px;
     padding: 20px;
     border-radius: 20px;
-    max-width: 250px; /* Maintain maximum width for larger screens */
-    transition: transform 0.3s; /* Add transition for hover effect */
+    max-width: 250px;
+    transition: transform 0.3s;
 }
 
-/* Hover effect to lift elements slightly */
 .elementContainer:hover {
     transform: translateY(-5px);
 }
 
 @media (max-width: 900px) {
     .topContainer {
-        gap: 30px; /* Increased gap on medium screens */
+        gap: 30px;
     }
 
     .elementContainer {
-        max-width: 200px; /* Adjusted max-width for smaller screens */
+        max-width: 200px;
     }
 
     .elementContainer img {
-        width: 80px; /* Image size for medium screens */
+        width: 80px;
     }
 }
 
 @media (max-width: 600px) {
     .topContainer {
         margin-top: 50px;
-        flex-direction: column; /* Stack elements vertically on small screens */
-        align-items: center; /* Center elements */
-        gap: 20px; /* Gap adjustment */
-        padding: 10px; /* Padding adjustment */
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 10px;
     }
 
     .elementContainer {
-        max-width: 150px; /* Further reduced max-width for small screens */
-        padding: 10px; /* Adjusted padding */
-        gap: 10px; /* Reduced gap between elements */
+        max-width: 150px;
+        padding: 10px;
+        gap: 10px;
     }
 
     .elementContainer img {
-        width: 60px; /* Image size for small screens */
+        width: 60px;
     }
 
     .elementContainer h6 {
-        font-size: 14px; /* Font size for small screens */
-        text-align: center; /* Center text for better readability */
+        font-size: 14px;
+        text-align: center;
     }
 }

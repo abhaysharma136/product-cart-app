@@ -40,9 +40,9 @@ export default function AnnouncementBar() {
               borderRadius: "30px",
               color: "white",
               height: "40px",
-              backgroundColor: "rgba(0, 0, 0, 0.2)", // Dark background with 80% opacity
+              backgroundColor: "rgba(0, 0, 0, 0.2)",
               "&:hover .MuiOutlinedInput-notchedOutline": {
-                borderColor: "rgba(255, 255, 255, 1)", // Stronger border on hover
+                borderColor: "rgba(255, 255, 255, 1)",
               },
             }}
           >

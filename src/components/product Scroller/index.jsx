@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import "./ProductCarousel.css"; // Import the CSS for styling
+import "./ProductCarousel.css";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Button } from "@mui/material";
@@ -11,31 +11,28 @@ const ProductCarousel = ({ products, handleClick }) => {
   let startX;
   let scrollLeft;
 
-  // Function to handle left scroll using button
   const scrollLeftFunc = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollLeft -= 200; // Change value to set the scroll distance
+      carouselRef.current.scrollLeft -= 200;
     }
   };
 
-  // Function to handle right scroll using button
   const scrollRightFunc = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollLeft += 200; // Change value to set the scroll distance
+      carouselRef.current.scrollLeft += 200;
     }
   };
 
-  // Function to handle dragging
   const startDrag = (e) => {
     isDragging = true;
-    startX = e.pageX || e.touches[0].pageX; // For touch devices
+    startX = e.pageX || e.touches[0].pageX;
     scrollLeft = carouselRef.current.scrollLeft;
   };
 
   const dragging = (e) => {
     if (!isDragging) return;
     const x = e.pageX || e.touches[0].pageX;
-    const walk = (x - startX) * 1.5; // Adjust drag sensitivity
+    const walk = (x - startX) * 1.5;
     carouselRef.current.scrollLeft = scrollLeft - walk;
   };
 

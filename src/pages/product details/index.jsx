@@ -11,32 +11,27 @@ import badge2 from "../../assets/icons/badge2.png";
 const ProductDetails = () => {
   const { productId } = useParams();
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState(true); // Add loading state
+  const [loading, setLoading] = useState(true);
 
-  // Simulate fetching the product
   useEffect(() => {
     const timer = setTimeout(() => {
-      setLoading(false); // Set loading to false after data is "fetched"
-    }, 1000); // Simulate a 1-second delay
+      setLoading(false);
+    }, 1000);
 
-    return () => clearTimeout(timer); // Clean up the timer
+    return () => clearTimeout(timer);
   }, []);
 
-  // Find the product from the products array
   const product = products.find((prod) => prod.id == productId);
 
-  // Get the current cart items from the Redux store
   const cart = useSelector((state) => state.cart.items);
   const existingItem = cart.find((item) => item.id === productId);
 
   const handleCheckout = () => {
     if (existingItem) {
-      // If the item is already in the cart, update the quantity
       dispatch(
         updateQuantity({ id: productId, quantity: existingItem.quantity + 1 })
       );
     } else {
-      // If the item is not in the cart, add it
       dispatch(addItem({ ...product, quantity: 1 }));
     }
   };
@@ -44,7 +39,7 @@ const ProductDetails = () => {
   if (loading) {
     return (
       <div className={styles.loaderContainer}>
-        <CircularProgress /> {/* Show loader while loading */}
+        <CircularProgress />
       </div>
     );
   }

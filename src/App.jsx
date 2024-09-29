@@ -38,16 +38,14 @@ function App() {
     setCart(updatedCart);
   };
 
-  // Function to simulate order placement and navigate to the Success Page
   const placeOrder = () => {
     const totalAmount = cart
       .reduce((total, item) => total + item.price * item.quantity, 0)
       .toFixed(2);
 
-    // Navigate to Success Page with order details
     navigate("/success", { state: { orderItems: cart, totalAmount } });
 
-    setCart([]); // Clear the cart after placing the order
+    setCart([]);
   };
 
   const navigate = useNavigate();

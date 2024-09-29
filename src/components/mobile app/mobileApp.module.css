@@ -1,6 +1,7 @@
 .topContainer {
     width: 70%;
-    min-height: 300px; /* Change height to min-height for flexibility */
+    min-height: 300px;
+    /* Change height to min-height for flexibility */
     background-color: antiquewhite;
     border-radius: 25px;
     display: flex;
@@ -8,70 +9,66 @@
     align-items: center;
     gap: 20px;
     overflow: hidden;
-    padding-top: 20px; /* Add padding for better spacing */
+    padding-top: 20px;
+    /* Add padding for better spacing */
 }
 
-/* Button styling */
 .downloadAppButton {
     background-color: black;
     color: white;
     border-radius: 40px;
-    padding: 10px 20px; /* Add padding for the button */
-    border: none; /* Remove default border */
-    cursor: pointer; /* Change cursor to pointer */
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
 }
 
-/* Right container styling */
 .downloadAppRightContainer {
     text-align: left;
     font-weight: 900;
 }
 
-/* Responsive design for medium-sized screens (tablets) */
 @media (max-width: 900px) {
     .topContainer {
-        flex-direction: column; /* Stack items vertically */
-        align-items: center; /* Center items */
-        width: 90%; /* Increase width for better mobile viewing */
-        gap: 15px; /* Reduce gap between elements */
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        gap: 15px;
     }
 
     .downloadAppButton {
-        padding: 8px 16px; /* Adjust button padding */
+        padding: 8px 16px;
     }
 
     .downloadAppRightContainer {
-        text-align: center; /* Center text on smaller screens */
+        text-align: center;
     }
 
     img {
-        width: 250px; /* Adjust image size */
+        width: 250px;
     }
 }
 
-/* Responsive design for mobile devices */
 @media (max-width: 600px) {
     .topContainer {
-        width: 95%; /* Full width on mobile */
-        min-height: 250px; /* Adjust height */
-        padding: 15px; /* Reduce padding */
+        width: 95%;
+        min-height: 250px;
+        padding: 15px;
     }
 
     img {
-        width: 200px; /* Further reduce image size */
+        width: 200px;
     }
 
     .downloadAppRightContainer {
-        max-width: 100%; /* Allow full width for text */
+        max-width: 100%;
     }
 
     .downloadAppButton {
-        width: 100%; /* Full width for button */
-        padding: 12px; /* Adjust padding */
+        width: 100%;
+        padding: 12px;
     }
 
-    /* Adjust font size if necessary */
     .downloadAppRightContainer h5 {
-        font-size: 16px; /* Reduce font size for mobile */
+        font-size: 16px;
     }
 }

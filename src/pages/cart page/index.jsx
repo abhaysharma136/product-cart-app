@@ -22,24 +22,21 @@ import { useNavigate } from "react-router-dom";
 import styles from "./cart.module.css";
 import discountIcon from "../../assets/icons/discount.png";
 import arrowRight from "../../assets/icons/right-arrow.png";
-import PropTypes from "prop-types"; // Import PropTypes for prop validation
+import PropTypes from "prop-types";
 const CartPage = ({ toggleDrawer }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // Loading state to control the loader
   const [loading, setLoading] = useState(true);
 
-  // Selecting cart items from the Redux store
   const cart = useSelector((state) => state.cart.items);
 
   useEffect(() => {
-    // Simulate loading with a delay
     const timer = setTimeout(() => {
-      setLoading(false); // Stop loading after data is loaded
-    }, 1000); // Simulate a delay of 1 second
+      setLoading(false);
+    }, 1000);
 
-    return () => clearTimeout(timer); // Clean up the timer on unmount
+    return () => clearTimeout(timer);
   }, []);
 
   const handleRemove = (id) => {
@@ -60,14 +57,12 @@ const CartPage = ({ toggleDrawer }) => {
       total: calculateTotalAmount(),
     };
 
-    // Clear the cart after storing order details
     dispatch(clearCart());
 
-    // Navigate to the success page with the order details
+    toggleDrawer(false)();
     navigate("/success", { state: { orderDetails } });
   };
 
-  // Calculate total amount safely
   const calculateTotalAmount = () => {
     if (Array.isArray(cart) && cart.length > 0) {
       return cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
@@ -122,7 +117,6 @@ const CartPage = ({ toggleDrawer }) => {
         </Box>
       ) : (
         <Box sx={{ padding: "20px" }}>
-          {/* Header with Back Arrow and Close Button */}
           <AppBar position="static" color="default" sx={{ boxShadow: "none" }}>
             <Toolbar sx={{ justifyContent: "space-between" }}>
               <IconButton
@@ -156,7 +150,6 @@ const CartPage = ({ toggleDrawer }) => {
             <Card sx={{ marginBottom: 2, padding: 2, borderRadius: "20px" }}>
               {cart.map((item, index) => (
                 <div className={styles.cartProductDetailsContainer} key={index}>
-                  {/* Product Image */}
                   <div className={styles.productImageContainer}>
                     <img
                       src={item.image}
@@ -225,7 +218,6 @@ const CartPage = ({ toggleDrawer }) => {
             </Card>
           </div>
           <Divider sx={{ marginBottom: "20px" }} />
-          {/* Coupon and Offers Card */}
           <Card sx={{ marginBottom: 2, padding: 2, borderRadius: "20px" }}>
             <div className={styles.couponContainer}>
               <img src={discountIcon} alt="discountIcon" />
@@ -239,7 +231,6 @@ const CartPage = ({ toggleDrawer }) => {
             </div>
           </Card>
 
-          {/* Bill Details */}
           <Card
             sx={{ marginBottom: 2, padding: 2, borderRadius: "20px" }}
             className={styles.billDetailsContainer}
@@ -276,8 +267,6 @@ const CartPage = ({ toggleDrawer }) => {
               <Typography variant="h4">₹821</Typography>
             </div>
           </Card>
-
-          {/* Cancellation Policy */}
           <Card
             sx={{ marginBottom: 2, padding: 2, borderRadius: "20px" }}
             className={styles.policyContainer}
@@ -292,7 +281,6 @@ const CartPage = ({ toggleDrawer }) => {
             </Typography>
           </Card>
 
-          {/* Action Buttons */}
           <Box
             sx={{ display: "flex", justifyContent: "flex-end", marginTop: 2 }}
           >
@@ -329,11 +317,11 @@ const CartPage = ({ toggleDrawer }) => {
                 border: "none",
                 color: "black",
                 padding: "5px 10px",
-                transition: "all 0.3s ease", // Smooth transition for hover effects
+                transition: "all 0.3s ease",
                 "&:hover": {
                   backgroundColor: "yellow",
-                  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)", // Subtle shadow effect
-                  transform: "scale(1.05)", // Slight scale up effect
+                  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
+                  transform: "scale(1.05)",
                 },
               }}
             >
@@ -349,5 +337,4 @@ CartPage.propTypes = {
   toggleDrawer: PropTypes.func.isRequired,
 };
 
-// Export default the updated component
 export default CartPage;

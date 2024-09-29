@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Grid, Card, Typography, CircularProgress, Box } from "@mui/material";
-import products from "../../products"; // Import the products array
+import products from "../../products";
 import styles from "./productList.module.css";
 import FirstComponent from "../../components/first Component";
 import Layout2 from "../../components/layout2";
@@ -11,21 +11,18 @@ import ProductCarousel from "../../components/product Scroller";
 const ProductListing = () => {
   const navigate = useNavigate();
 
-  // Loading state to control the loader
   const [loading, setLoading] = useState(true);
 
-  // Simulate data fetching with a delay
   useEffect(() => {
-    // Simulating API call or data fetching
     const timer = setTimeout(() => {
-      setLoading(false); // Stop the loader after 2 seconds
-    }, 2000); // You can adjust this delay based on actual API time
+      setLoading(false);
+    }, 2000);
 
-    return () => clearTimeout(timer); // Clean up the timer on unmount
+    return () => clearTimeout(timer);
   }, []);
 
   const handleViewDetails = (index) => {
-    navigate(`/product/${index}`); // Navigate to the Product Details page
+    navigate(`/product/${index}`);
   };
 
   return (
@@ -40,7 +37,6 @@ const ProductListing = () => {
       }}
     >
       {loading ? (
-        // Display the loader when loading is true
         <Box
           sx={{
             display: "flex",

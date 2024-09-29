@@ -8,13 +8,11 @@
     box-sizing: border-box;
 }
 
-/* Left Section */
 .firstLeftContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 60%;
-    /* Adjusted to allow both divs to fit */
     height: 100%;
     padding: 20px;
     box-sizing: border-box;
@@ -25,10 +23,9 @@
     width: 60%;
 }
 
-/* Right Section */
+
 .firstRightContainer {
     width: 40%;
-    /* Adjusted to allow both divs to fit */
     height: 100%;
     box-sizing: border-box;
 }
@@ -138,7 +135,6 @@
     align-items: center;
     position: absolute;
     width: 70%;
-    /* Full width for larger screens */
     background-color: rgb(239, 239, 239);
     border-radius: 30px;
     height: 80px;
@@ -148,18 +144,15 @@
     z-index: 2;
 }
 
-/* Reverse direction for icons and adjust spacing */
 .bottomDivIconDiv {
     display: flex;
     flex-direction: row-reverse;
     gap: 5px;
 }
 
-/* Responsive Styles */
 @media (max-width: 1200px) {
     .bottomDiv {
         width: 80%;
-        /* Adjust width for medium screens */
         height: 70px;
     }
 }
@@ -167,24 +160,19 @@
 @media (max-width: 900px) {
     .bottomDiv {
         width: 90%;
-        /* Adjust width for smaller screens */
         height: 60px;
         bottom: -50px;
-        /* Adjust the bottom offset */
     }
 
     .bottomDivIconDiv {
         flex-direction: row;
-        /* Change icon direction for small screens */
         gap: 10px;
-        /* Increase gap for better spacing */
     }
 }
 
 @media (max-width: 600px) {
     .bottomDiv {
         width: 100%;
-        /* Full width for mobile devices */
         height: 50px;
         padding: 10px;
         bottom: -40px;
@@ -198,7 +186,6 @@
 
     .bottomDivIconDiv {
         flex-direction: row;
-        /* Icons arranged side-by-side */
         gap: 8px;
     }
 }

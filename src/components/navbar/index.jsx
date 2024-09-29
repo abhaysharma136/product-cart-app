@@ -20,14 +20,12 @@ import styles from "./navbar.module.css";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false); // Drawer state
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  // Access totalItems from Redux store
   const totalItems = useSelector((state) =>
     state.cart.items.reduce((sum, item) => sum + item.quantity, 0)
   );
 
-  // Function to open and close the drawer
   const toggleDrawer = (open) => () => {
     setIsDrawerOpen(open);
   };
@@ -35,14 +33,12 @@ const Navbar = () => {
   return (
     <AppBar position="static" className={styles.navBar}>
       <Toolbar className={styles.toolbar}>
-        {/* Logo */}
         <div className={styles.logoContainer} onClick={() => navigate("/")}>
           <Typography className={styles.logo} variant="h4">
             Origin
           </Typography>
         </div>
-        
-        {/* Location - hidden on smaller devices */}
+
         <div className={styles.locationContainer}>
           <div className={styles.locationIconDiv}>
             <img src={LocationArrow} alt="locationIcon" width={20} />
@@ -51,7 +47,6 @@ const Navbar = () => {
           <Typography>Sodepur, Appareddipalya, Indiran..</Typography>
         </div>
 
-        {/* Search Bar */}
         <div className={styles.searchBar}>
           <InputBase
             placeholder="Search products"
@@ -63,12 +58,11 @@ const Navbar = () => {
           </IconButton>
         </div>
 
-        {/* Account and Cart icons with divider */}
         <div className={styles.iconContainer}>
           <IconButton edge="end" color="inherit" aria-label="account">
             <AccountCircleIcon />
           </IconButton>
-          <div className={styles.iconDivider}></div> {/* Horizontal Line */}
+          <div className={styles.iconDivider}></div>
           <IconButton
             edge="end"
             color="inherit"
@@ -81,7 +75,6 @@ const Navbar = () => {
           </IconButton>
         </div>
 
-        {/* Drawer for the Cart */}
         <Drawer
           anchor="right"
           open={isDrawerOpen}

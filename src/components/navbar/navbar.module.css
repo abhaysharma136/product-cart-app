@@ -9,22 +9,15 @@
   margin-top: 20px;
   position: fixed !important;
   left: 50%;
-  /* Position it from the center of the viewport */
   transform: translateX(-50%);
-  /* Offset the element by 50% of its width to center it */
   z-index: 1000;
-  /* Ensures it stays on top of other content */
 }
 
-/* Navbar styles */
 .navBar {
   background-color: #fff;
-  /* White background */
   color: #333;
-  /* Dark text color */
   box-shadow: none;
   border-bottom: 1px solid #eee;
-  /* Light bottom border */
 }
 
 .toolbar {
@@ -34,7 +27,6 @@
   padding: 10px;
 }
 
-/* Logo styling */
 .logoContainer {
   display: flex;
   align-items: center;
@@ -46,7 +38,6 @@
   height: 40px;
 }
 
-/* Search bar styling */
 .searchBar {
   display: flex;
   align-items: center;
@@ -73,13 +64,11 @@
   color: #333;
 }
 
-/* Right-side icon container (Account and Cart) */
 .iconContainer {
   display: flex;
   align-items: center;
 }
 
-/* Divider (line) between icons */
 .iconDivider {
   width: 1px;
   height: 40px;
@@ -99,7 +88,6 @@
   font-weight: bold;
 }
 
-/* Responsive styles */
 @media (max-width: 1024px) {
   .navBar {
     width: 100%;
@@ -113,12 +101,10 @@
 
   .locationContainer {
     display: none;
-    /* Hide location details on tablets for more space */
   }
 
   .searchBar {
     max-width: 200px;
-    /* Reduce the max-width for smaller devices */
   }
 }
 
@@ -126,7 +112,6 @@
   .navBar {
     margin-top: 0;
     width: 100%;
-    /* Remove border radius for a full-width navbar */
   }
 
   .toolbar {
@@ -151,7 +136,6 @@
 
   .iconDivider {
     display: none;
-    /* Hide divider to save space */
   }
 }
 
@@ -162,7 +146,6 @@
 
   .logo {
     font-size: 20px;
-    /* Smaller logo text */
   }
 
   .toolbar {
@@ -172,7 +155,6 @@
 
   .searchBar {
     display: none;
-    /* Hide search bar on very small screens */
   }
 
   .iconContainer {

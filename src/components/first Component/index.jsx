@@ -6,7 +6,6 @@ import truck from "../../assets/icons/shipping-truck32.png";
 export default function FirstComponent() {
   return (
     <div className={styles.topContainer}>
-      {/* Left Section */}
       <div className={styles.firstLeftContainer}>
         <div className={styles.innerLeftDiv}>
           <Typography gutterBottom variant="h2" component="div">
@@ -30,10 +29,8 @@ export default function FirstComponent() {
         </div>
       </div>
 
-      {/* Right Section */}
       <div className={styles.firstRightContainer}></div>
 
-      {/* Bottom Section */}
       <div className={styles.bottomDiv}>
         <div className={styles.bottomDivIconDiv}>
           <Typography className={styles.bottomDivText}>

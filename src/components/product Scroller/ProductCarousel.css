@@ -1,4 +1,3 @@
-/* General carousel container styling */
 .carousel-container {
     position: relative;
     display: flex;
@@ -6,31 +5,24 @@
     box-sizing: border-box;
 }
 
-/* Carousel styling */
+
 .carousel {
     display: flex;
     overflow: hidden;
     scroll-snap-type: x mandatory;
-    /* Enables snap scrolling */
     gap: 10px;
     padding: 10px;
     scroll-behavior: smooth;
-    /* Smooth scrolling */
     -webkit-overflow-scrolling: touch;
-    /* For smoother scrolling on mobile */
     cursor: grab;
-    /* Change cursor to indicate drag */
     box-sizing: border-box;
 }
 
-/* Product items */
+
 .carousel-item {
     flex: none;
-    /* Prevents flex items from growing */
     scroll-snap-align: start;
-    /* Ensures items snap into place when scrolling */
     width: 200px;
-    /* Fixed width for product cards */
     height: 200px;
     background-color: #fff;
     border-radius: 10px;
@@ -42,20 +34,18 @@
     text-align: center;
 }
 
-/* Image styling */
 .carousel-item img {
     max-width: 100%;
     border-radius: 10px;
     width: 80%;
 }
 
-/* Product text */
+
 .carousel-item p {
     margin-top: 10px;
     font-size: 14px;
 }
 
-/* Scroll buttons */
 .scroll-button {
     position: absolute;
     top: 50%;
@@ -81,7 +71,6 @@
     background-color: #f0f0f0;
 }
 
-/* Hide scrollbar */
 .carousel::-webkit-scrollbar {
     display: none;
 }
