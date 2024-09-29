@@ -1,0 +1,129 @@
+/* General carousel container styling */
+.carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Carousel styling */
+.carousel {
+    display: flex;
+    overflow: hidden;
+    scroll-snap-type: x mandatory;
+    /* Enables snap scrolling */
+    gap: 10px;
+    padding: 10px;
+    scroll-behavior: smooth;
+    /* Smooth scrolling */
+    -webkit-overflow-scrolling: touch;
+    /* For smoother scrolling on mobile */
+    cursor: grab;
+    /* Change cursor to indicate drag */
+    box-sizing: border-box;
+}
+
+/* Product items */
+.carousel-item {
+    flex: none;
+    /* Prevents flex items from growing */
+    scroll-snap-align: start;
+    /* Ensures items snap into place when scrolling */
+    width: 200px;
+    /* Fixed width for product cards */
+    height: 200px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Image styling */
+.carousel-item img {
+    max-width: 100%;
+    border-radius: 10px;
+    width: 80%;
+}
+
+/* Product text */
+.carousel-item p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Scroll buttons */
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.scroll-button.left {
+    left: 10px;
+}
+
+.scroll-button.right {
+    right: 10px;
+}
+
+.scroll-button:hover {
+    background-color: #f0f0f0;
+}
+
+/* Hide scrollbar */
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carouselDataTopContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.carouselDataTopContainer p {
+    font-weight: bold;
+}
+
+.carouselDataTopContainer h6 {
+    font-size: 12px;
+    font-weight: 300;
+    text-align: left;
+    max-height: 15px;
+    overflow-y: hidden;
+    margin: 0;
+}
+
+.carouselProductWeight {
+    color: lightgray;
+    font-size: 14px;
+    margin: 0;
+}
+
+.carouselProductPrice {
+    color: green;
+    font-size: 14px;
+    margin: 0;
+}
+
+.addToCartButton {
+    height: 40px;
+    background-color: yellow !important;
+    margin-top: 10px;
+    border-radius: 25px !important;
+    border: none;
+    color: black !important;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}

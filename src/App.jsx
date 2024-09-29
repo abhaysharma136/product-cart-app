@@ -7,6 +7,7 @@ import { useState } from "react";
 import CartPage from "./pages/cart page";
 import SuccessPage from "./pages/success page";
 import AnnouncementBar from "./components/announcementbar";
+import ProductCarousel from "./components/product Scroller";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -56,6 +57,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<ProductListing />} />
+        <Route path="/car" element={<ProductCarousel />} />
         <Route
           path="/product/:productId"
           element={<ProductDetails product={addToCart} />}
