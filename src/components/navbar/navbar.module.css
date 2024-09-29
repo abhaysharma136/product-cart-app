@@ -124,8 +124,8 @@
 
 @media (max-width: 768px) {
   .navBar {
+    margin-top: 0;
     width: 100%;
-    border-radius: 0;
     /* Remove border radius for a full-width navbar */
   }
 

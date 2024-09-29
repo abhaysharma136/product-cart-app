@@ -130,6 +130,16 @@
     padding: 5px 10px;
 }
 
+.additionalImageContainer {
+    width: 30px;
+    height: 30px;
+}
+
+.additionalImage {
+    width: 100%;
+    height: 100%;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .innerMainContainer {

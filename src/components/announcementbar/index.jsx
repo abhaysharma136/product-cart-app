@@ -1,6 +1,6 @@
 import { Box, Grid, Typography, Select, MenuItem } from "@mui/material";
 import { useState } from "react";
-
+import styles from "./Announcement.module.css";
 export default function AnnouncementBar() {
   const [age, setAge] = useState(10);
   const handleChange = (event) => {
@@ -12,12 +12,12 @@ export default function AnnouncementBar() {
       sx={{
         backgroundColor: "#2eb62e",
         display: "flex",
-        padding:"5px 0",
+        padding: "5px 0",
         color: "white",
       }}
     >
       <Grid container spacing={2} alignItems="center">
-        <Grid item xs={12} sm={5} >
+        <Grid item xs={12} sm={5}>
           <Typography variant="body1" sx={{ fontWeight: "bold" }}>
             Download the App and get 20% Off on 1st Order
           </Typography>
@@ -25,10 +25,10 @@ export default function AnnouncementBar() {
         <Grid
           item
           xs={12}
-          sm={6}
+          sm={5}
           sx={{
             display: "flex",
-            justifyContent: { xs: "flex-start", sm: "flex-end" },
+            justifyContent: { xs: "center", sm: "flex-end" },
           }}
         >
           <Select
@@ -40,7 +40,7 @@ export default function AnnouncementBar() {
             sx={{
               borderRadius: "30px",
               color: "white",
-              height:"40px",
+              height: "40px",
               backgroundColor: "rgba(0, 0, 0, 0.2)", // Dark background with 80% opacity
               "&:hover .MuiOutlinedInput-notchedOutline": {
                 borderColor: "rgba(255, 255, 255, 1)", // Stronger border on hover

@@ -99,8 +99,13 @@ const ProductDetails = () => {
             <h3>Storing Information</h3>
             <div className={styles.storingInfoItem}>
               <div className={styles.storingInfoCard}>
-                <div>
-                  <img src={badge1} alt="badge1" width={30} />
+                <div className={styles.additionalImageContainer}>
+                  <img
+                    src={badge1}
+                    alt="badge1"
+                    width={30}
+                    className={styles.additionalImage}
+                  />
                 </div>
                 <div>
                   <div>10 Days</div>
@@ -108,8 +113,13 @@ const ProductDetails = () => {
                 </div>
               </div>
               <div className={styles.storingInfoCard}>
-                <div>
-                  <img src={badge2} alt="badge2" width={30} />
+                <div className={styles.additionalImageContainer}>
+                  <img
+                    src={badge2}
+                    alt="badge2"
+                    width={30}
+                    className={styles.additionalImage}
+                  />
                 </div>
                 <div>
                   <div>3 Weeks</div>

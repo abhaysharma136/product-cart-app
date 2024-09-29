@@ -40,7 +40,7 @@ const ProductListing = () => {
   return (
     <div
       style={{
-        padding: "20px",
+        padding: "20px 0",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",

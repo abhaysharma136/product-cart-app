@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 import styles from "./first.module.css";
 import avacadoIcon from "../../assets/icons/fruit.png";
 import clockIcon from "../../assets/icons/circular-alarm-clock-tool.png";
-import truck from "../../assets/icons/pretzel-truck.png";
+import truck from "../../assets/icons/shipping-truck32.png";
 export default function FirstComponent() {
   return (
     <div className={styles.topContainer}>
@@ -36,21 +36,27 @@ export default function FirstComponent() {
       {/* Bottom Section */}
       <div className={styles.bottomDiv}>
         <div className={styles.bottomDivIconDiv}>
-          <Typography>More then 500 products</Typography>
-          <div>
-            <img src={avacadoIcon} alt="fruit" width={20} />
+          <Typography className={styles.bottomDivText}>
+            More then 500 products
+          </Typography>
+          <div className={styles.imageContainer}>
+            <img src={avacadoIcon} alt="fruit" className={styles.imageTag} />
           </div>
         </div>
         <div className={styles.bottomDivIconDiv}>
-          <Typography>Priority Deleveries</Typography>
-          <div>
-            <img src={clockIcon} alt="clock" width={20} />
+          <Typography className={styles.bottomDivText}>
+            Priority Deleveries
+          </Typography>
+          <div className={styles.imageContainer}>
+            <img src={clockIcon} alt="clock" className={styles.imageTag} />
           </div>
         </div>
         <div className={styles.bottomDivIconDiv}>
-          <Typography>Easy Refunds/Returns</Typography>
-          <div>
-            <img src={truck} alt="truck" width={20} />
+          <Typography className={styles.bottomDivText}>
+            Easy Refunds/Returns
+          </Typography>
+          <div className={styles.bottomDivIconDiv}>
+            <img src={truck} alt="truck" className={styles.imageTag2} />
           </div>
         </div>
       </div>
