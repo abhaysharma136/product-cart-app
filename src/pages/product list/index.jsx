@@ -13,6 +13,9 @@ import {
 } from "@mui/material";
 import products from "../../products"; // Import the products array
 import styles from "./productList.module.css";
+import FirstComponent from "../../components/first Component";
+import Layout2 from "../../components/layout2";
+import MobileAppContainer from "../../components/mobile app";
 
 const ProductListing = () => {
   const navigate = useNavigate();
@@ -35,7 +38,15 @@ const ProductListing = () => {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div
+      style={{
+        padding: "20px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       {loading ? (
         // Display the loader when loading is true
         <Box
@@ -51,6 +62,8 @@ const ProductListing = () => {
       ) : (
         // Display the products when loading is false
         <Grid container spacing={3}>
+          <FirstComponent />
+          <Layout2 />
           {products.map((product, index) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
               <Card sx={{ maxWidth: 345, borderRadius: 5 }}>
@@ -95,6 +108,7 @@ const ProductListing = () => {
           ))}
         </Grid>
       )}
+      <MobileAppContainer />
     </div>
   );
 };

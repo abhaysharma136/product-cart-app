@@ -6,6 +6,7 @@ import ProductDetails from "./pages/product details";
 import { useState } from "react";
 import CartPage from "./pages/cart page";
 import SuccessPage from "./pages/success page";
+import AnnouncementBar from "./components/announcementbar";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -51,7 +52,8 @@ function App() {
   const navigate = useNavigate();
   return (
     <>
-      <Navbar cartItemCount={2} />
+      <AnnouncementBar />
+      <Navbar />
       <Routes>
         <Route path="/" element={<ProductListing />} />
         <Route

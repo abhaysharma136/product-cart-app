@@ -1,0 +1,180 @@
+.topContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 600px;
+    text-align: left;
+    position: relative;
+}
+
+.firstLeftContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 100%;
+    background-color: yellow;
+    padding: 20px;
+}
+
+
+.innerLeftDiv {
+    width: 40%;
+}
+
+
+.firstRightContainer {
+    width: 40%;
+    height: 100%;
+}
+
+.leftInnerDivSubtext {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+
+.shopNowButton {
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    padding: 15px 25px;
+    margin-right: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.chooseFreshButton {
+    background-color: transparent;
+    color: black;
+    padding: 15px 25px;
+    border: 2px solid black;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+    .innerLeftDiv {
+        width: 50%;
+
+    }
+}
+
+@media (max-width: 900px) {
+
+    .firstLeftContainer,
+    .firstRightContainer {
+        width: 100%;
+        height: auto;
+    }
+
+    .innerLeftDiv {
+        width: 80%;
+    }
+
+    .leftInnerDivSubtext {
+        font-size: 16px;
+    }
+
+    .shopNowButton,
+    .chooseFreshButton {
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .innerLeftDiv {
+        width: 90%;
+    }
+
+    .leftInnerDivSubtext {
+        font-size: 15px;
+    }
+
+    .shopNowButton,
+    .chooseFreshButton {
+        padding: 10px 15px;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+
+    .shopNowButton {
+        width: 100%;
+    }
+
+    .chooseFreshButton {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+.bottomDiv {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    width: 70%;
+    /* Full width for larger screens */
+    background-color: rgb(239, 239, 239);
+    border-radius: 30px;
+    height: 80px;
+    bottom: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+/* Reverse direction for icons and adjust spacing */
+.bottomDivIconDiv {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .bottomDiv {
+        width: 80%;
+        /* Adjust width for medium screens */
+        height: 70px;
+    }
+}
+
+@media (max-width: 900px) {
+    .bottomDiv {
+        width: 90%;
+        /* Adjust width for smaller screens */
+        height: 60px;
+        bottom: -50px;
+        /* Adjust the bottom offset */
+    }
+
+    .bottomDivIconDiv {
+        flex-direction: row;
+        /* Change icon direction for small screens */
+        gap: 10px;
+        /* Increase gap for better spacing */
+    }
+}
+
+@media (max-width: 600px) {
+    .bottomDiv {
+        width: 100%;
+        /* Full width for mobile devices */
+        height: 50px;
+        padding: 10px;
+        bottom: -40px;
+        border-radius: 20px;
+    }
+
+    .bottomDivIconDiv {
+        flex-direction: row;
+        /* Icons arranged side-by-side */
+        gap: 8px;
+    }
+}

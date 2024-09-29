@@ -1,16 +1,11 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, updateQuantity } from "../../redux/cartSlice";
-import {
-  Button,
-  Typography,
-  Card,
-  CardContent,
-  CircularProgress,
-  Grid,
-} from "@mui/material";
+import { Button, Typography, CircularProgress, Grid } from "@mui/material";
 import products from "../../products";
 import { useEffect, useState } from "react";
+import styles from "./productDetails.module.css";
+import AddIcon from "@mui/icons-material/Add";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
@@ -58,54 +53,90 @@ const ProductDetails = () => {
   }
 
   return (
-    <Card style={{ margin: "20px" }} sx={{ borderRadius: 5, padding: 2 }}>
-      <Grid container spacing={2}>
-        {/* Product Image on the Left */}
-        <Grid item xs={12} md={5}>
-          <img
-            src={product.image}
-            alt={product.name}
-            style={{ width: "100%", borderRadius: 15 }}
-          />
-        </Grid>
+    <div className={styles.mainContiner}>
+      <div>
+        <Grid
+          container
+          spacing={2}
+          sx={{ display: "flex", justifyContent: "center" }}
+        >
+          <Grid item xs={12} md={4}>
+            <div className={styles.productImageContainer}>
+              <img
+                src={product.image}
+                alt={product.name}
+                style={{ width: "60%", borderRadius: 25 }}
+                className={styles.productImage}
+              />
+            </div>
+          </Grid>
 
-        {/* Product Details on the Right */}
-        <Grid item xs={12} md={7}>
-          <CardContent>
-            <Typography variant="h5" gutterBottom>
-              {product.name}
-            </Typography>
-            <Typography variant="body1" color="textSecondary" paragraph>
-              {product.description}
-            </Typography>
-            <Typography variant="h6" color="primary">
-              ${product.price}
-            </Typography>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={handleCheckout}
-              sx={{
-                marginTop: "10px",
-                borderRadius: 10,
-                background: "black",
-                border: "none",
-                color: "white",
-                padding: "10px 15px",
-                transition: "all 0.3s ease", // Smooth transition for hover effects
-                "&:hover": {
-                  backgroundColor: "#333", // Darker shade of black for hover
-                  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)", // Subtle shadow effect
-                  transform: "scale(1.05)", // Slight scale up effect
-                },
-              }}
-            >
-              Add to Cart
-            </Button>
-          </CardContent>
+          <Grid item xs={12} md={5}>
+            <div className={styles.rightDetailsContainer}>
+              <Typography variant="h5" gutterBottom>
+                {product.name}
+              </Typography>
+              <Typography ariant="h5" gutterBottom>
+                Geeru gundu badenekaayi
+              </Typography>
+              <div className={styles.priceContainer}>
+                <div className={styles.priceValueContainer}>
+                  <Typography variant="h6" fontSize="14px">
+                    1 KG
+                  </Typography>
+                  <Typography variant="h6" fontSize="14px">
+                    ₹ {product.price}
+                  </Typography>
+                </div>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleCheckout}
+                  className={styles.AddToCartButton}
+                  endIcon={<AddIcon />}
+                  sx={{
+                    marginTop: "10px",
+                    borderRadius: 10,
+                    border: "none",
+                    color: "black",
+                    padding: "10px 15px",
+                    transition: "all 0.3s ease", // Smooth transition for hover effects
+                    "&:hover": {
+                      backgroundColor: "#333", // Darker shade of black for hover
+                      boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)", // Subtle shadow effect
+                      transform: "scale(1.05)", // Slight scale up effect
+                    },
+                  }}
+                >
+                  Add
+                </Button>
+              </div>
+              <div className={styles.descriptionContianer}>
+                <h3 style={{ marginTop: "0", marginBottom: "5px" }}>About</h3>
+                <Typography variant="body1" color="textSecondary" paragraph>
+                  {product.description}
+                </Typography>
+              </div>
+            </div>
+          </Grid>
         </Grid>
-      </Grid>
-    </Card>
+      </div>
+      <div style={{ width: "75%" }} className={styles.storingDetailsContainer}>
+        <Grid sx={{ display: "flex" }}>
+          <Grid style={{ background: "grey" }} xs={12} md={5}>
+            <h3>Storing informartion</h3>
+            <div>
+              <div>10 Days</div>
+              <div>Room temp. 19-2</div>
+            </div>
+            <div>
+              <div>3 Weeks</div>
+              <div>Refrigrate 16-19 C</div>
+            </div>
+          </Grid>
+        </Grid>
+      </div>
+    </div>
   );
 };
 
