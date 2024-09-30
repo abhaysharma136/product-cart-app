@@ -23,11 +23,26 @@
     width: 60%;
 }
 
-
+.innerLeftDiv h2 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.innerLeftDiv h6 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 .firstRightContainer {
     width: 40%;
     height: 100%;
     box-sizing: border-box;
+    background-color: white;
+    position: relative;
+}
+
+.firstRightImageContainer {
+    position: absolute;
+    top: 120px;
+    left: -20%;
+    height: 350px;
+    width: 350px;
 }
 
 .leftInnerDivSubtext {

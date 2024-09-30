@@ -8,13 +8,12 @@ export default function FirstComponent() {
     <div className={styles.topContainer}>
       <div className={styles.firstLeftContainer}>
         <div className={styles.innerLeftDiv}>
-          <Typography gutterBottom variant="h2" component="div">
+          <Typography gutterBottom variant="h2">
             Where Fresh is a Lifestyle
           </Typography>
           <Typography
             gutterBottom
             variant="h6"
-            component="div"
             className={styles.leftInnerDivSubtext}
           >
             Join us, elevate meals, support local farmers, and reduce food
@@ -29,7 +28,13 @@ export default function FirstComponent() {
         </div>
       </div>
 
-      <div className={styles.firstRightContainer}></div>
+      <div className={styles.firstRightContainer}>
+        <img
+          src="https://static.vecteezy.com/system/resources/thumbnails/047/830/714/small_2x/a-vibrant-assortment-of-fresh-vegetables-including-peppers-onions-lettuce-broccoli-tomatoes-corn-and-garlic-arranged-on-a-white-background-png.png"
+          alt="vegetableImage"
+          className={styles.firstRightImageContainer}
+        />
+      </div>
 
       <div className={styles.bottomDiv}>
         <div className={styles.bottomDivIconDiv}>

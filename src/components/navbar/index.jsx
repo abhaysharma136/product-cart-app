@@ -17,7 +17,7 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import CartPage from "../../pages/cart page/index.jsx";
 import styles from "./navbar.module.css";
-
+import logo from "../../assets/icons/origin.png";
 const Navbar = () => {
   const navigate = useNavigate();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -34,11 +34,9 @@ const Navbar = () => {
     <AppBar position="static" className={styles.navBar}>
       <Toolbar className={styles.toolbar}>
         <div className={styles.logoContainer} onClick={() => navigate("/")}>
-          <Typography className={styles.logo} variant="h4">
-            Origin
-          </Typography>
+          <img src={logo} alt="logo" className={styles.logo} />
         </div>
-
+        <div className={styles.iconDivider}></div>
         <div className={styles.locationContainer}>
           <div className={styles.locationIconDiv}>
             <img src={LocationArrow} alt="locationIcon" width={20} />

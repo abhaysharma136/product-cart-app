@@ -111,7 +111,11 @@ const CartPage = ({ toggleDrawer }) => {
               </IconButton>
             </Toolbar>
           </AppBar>
-          <Typography variant="h4" gutterBottom>
+          <Typography
+            variant="h4"
+            gutterBottom
+            sx={{ textAlign: "center", marginTop: "20%" }}
+          >
             Your Cart is Empty. Add something to your Cart.
           </Typography>
         </Box>
@@ -166,11 +170,7 @@ const CartPage = ({ toggleDrawer }) => {
                     <ButtonGroup
                       size="small"
                       aria-label="quantity control"
-                      sx={{
-                        background: "yellow",
-                        borderRadius: "20px",
-                        width: "100px",
-                      }}
+                      className={styles.buttonGroup}
                     >
                       <IconButton
                         aria-label="decrease quantity"
