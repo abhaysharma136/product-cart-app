@@ -17,7 +17,10 @@ export default function AnnouncementBar() {
     >
       <Grid container spacing={2} alignItems="center">
         <Grid item xs={12} sm={5}>
-          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+          <Typography
+            variant="body1"
+            sx={{ fontWeight: "bold", fontFamily: "cursive" }}
+          >
             Download the App and get 20% Off on 1st Order
           </Typography>
         </Grid>

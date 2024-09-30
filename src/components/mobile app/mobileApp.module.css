@@ -1,5 +1,5 @@
 .topContainer {
-    width: 70%;
+    width: 90%;
     min-height: 300px;
     /* Change height to min-height for flexibility */
     background-color: antiquewhite;
@@ -25,6 +25,10 @@
 .downloadAppRightContainer {
     text-align: left;
     font-weight: 900;
+}
+
+.downloadAppRightContainer h5 {
+    font-family: cursive;
 }
 
 @media (max-width: 900px) {

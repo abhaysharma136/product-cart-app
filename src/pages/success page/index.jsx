@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
-import { Typography, Card, CardContent, Box, Divider, CircularProgress } from "@mui/material";
+import {
+  Typography,
+  Card,
+  CardContent,
+  Box,
+  Divider,
+  CircularProgress,
+} from "@mui/material";
 import { useLocation } from "react-router-dom";
 
 const SuccessPage = () => {
@@ -32,6 +39,7 @@ const SuccessPage = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        marginTop: "40px",
       }}
     >
       {loading ? (
@@ -46,7 +54,7 @@ const SuccessPage = () => {
           <CircularProgress />
         </Box>
       ) : !orderDetails ? (
-        <Typography variant="h4" gutterBottom>
+        <Typography variant="h4" gutterBottom sx={{ fontFamily: "cursive" }}>
           No order details available.
         </Typography>
       ) : (
@@ -54,12 +62,12 @@ const SuccessPage = () => {
           <Typography
             variant="h4"
             gutterBottom
-            sx={{ color: "green", fontWeight: "bold" }}
+            sx={{ color: "green", fontWeight: "bold", fontFamily: "cursive" }}
           >
             Thank You for Your Order!
           </Typography>
 
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="h6" gutterBottom sx={{ fontFamily: "cursive" }}>
             Order Summary
           </Typography>
 
@@ -77,7 +85,13 @@ const SuccessPage = () => {
                 boxShadow: "0 3px 6px rgba(0,0,0,0.1)",
               }}
             >
-              <CardContent sx={{ display: "flex", alignItems: "center" }}>
+              <CardContent
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-evenly",
+                }}
+              >
                 <img
                   src={item.image}
                   alt={item.name}
@@ -88,15 +102,20 @@ const SuccessPage = () => {
                     marginRight: "20px",
                   }}
                 />
-                <Box>
+                <Box sx={{ textAlign: "left" }}>
                   <Typography variant="h6" sx={{ fontWeight: "500" }}>
                     {item.name}
                   </Typography>
-                  <Typography variant="body1">
+                  <Typography variant="body1" sx={{ fontWeight: "500" }}>
                     Price: ${item.price.toFixed(2)}
                   </Typography>
-                  <Typography variant="body1">Quantity: {item.quantity}</Typography>
-                  <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+                  <Typography variant="body1" sx={{ fontWeight: "500" }}>
+                    Quantity: {item.quantity}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{ fontWeight: "bold", color: "green" }}
+                  >
                     Total: ${(item.price * item.quantity).toFixed(2)}
                   </Typography>
                 </Box>

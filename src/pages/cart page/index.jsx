@@ -114,7 +114,11 @@ const CartPage = ({ toggleDrawer }) => {
           <Typography
             variant="h4"
             gutterBottom
-            sx={{ textAlign: "center", marginTop: "20%" }}
+            sx={{
+              textAlign: "center",
+              marginTop: "20%",
+              fontFamily: "cursive",
+            }}
           >
             Your Cart is Empty. Add something to your Cart.
           </Typography>
@@ -296,6 +300,7 @@ const CartPage = ({ toggleDrawer }) => {
                 color: "black",
                 padding: "5px 10px",
                 transition: "all 0.3s ease",
+                fontFamily: "cursive",
                 "&:hover": {
                   backgroundColor: "#f5f5f5",
                   color: "#333",
@@ -318,6 +323,7 @@ const CartPage = ({ toggleDrawer }) => {
                 color: "black",
                 padding: "5px 10px",
                 transition: "all 0.3s ease",
+                fontFamily: "cursive",
                 "&:hover": {
                   backgroundColor: "yellow",
                   boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",

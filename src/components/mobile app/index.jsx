@@ -8,7 +8,7 @@ export default function MobileAppContainer() {
         <img src={appImage} alt="app" width={300} />
       </div>
       <div className={styles.downloadAppRightContainer}>
-        <Typography gutterBottom variant="h5" component="div" maxWidth="220px">
+        <Typography gutterBottom variant="h5" maxWidth="220px">
           Download the APP and get FLAT 20% Off on 1st Order
         </Typography>
         <button className={styles.downloadAppButton}>Download Origin</button>

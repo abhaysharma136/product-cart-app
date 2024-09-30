@@ -20,6 +20,10 @@
     transition: transform 0.3s;
 }
 
+.elementContainer h6 {
+    font-family: cursive;
+}
+
 .elementContainer:hover {
     transform: translateY(-5px);
 }

@@ -6,6 +6,7 @@
     background-color: beige;
     height: 50px;
     border-radius: 15px;
+    font-family: cursive !important;
 }
 
 .cartProductDetailsContainer {
@@ -13,30 +14,42 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 15px;
+    font-family: cursive !important;
+}
+
+.nameQuantityTextContainer {
+    width: 15%;
+    font-family: cursive !important;
 }
 
 .nameQuantityTextContainer h5 {
     font-size: 14px;
     font-weight: bold;
+    font-family: cursive !important;
 }
 
 .nameQuantityTextContainer h6 {
     font-size: 12px;
     color: lightgrey;
+    font-family: cursive !important;
 }
 
 .policyContainer {
     line-height: 1.5rem;
+    font-family: cursive !important;
 }
 
 .policyContainer h5 {
     font-size: 18px;
     font-weight: bold;
+    font-family: cursive !important;
+
 }
 
 .policyContainer h6 {
     line-height: 1rem;
     font-size: 14px;
+    font-family: cursive !important;
 }
 
 .billDetailsContainer {
@@ -102,6 +115,7 @@
 
     .buttonGroup {
         width: 80px !important;
+        font-family: cursive !important;
     }
 }
 

@@ -83,7 +83,12 @@ const ProductDetails = () => {
             </div>
             <div className={styles.descriptionContainer}>
               <h3>About</h3>
-              <Typography variant="body1" color="textSecondary" paragraph>
+              <Typography
+                variant="body1"
+                color="textSecondary"
+                paragraph
+                sx={{ fontFamily: "cursive" }}
+              >
                 {product.description}
               </Typography>
             </div>
