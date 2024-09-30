@@ -17,7 +17,7 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import CartPage from "../../pages/cart page/index.jsx";
 import styles from "./navbar.module.css";
-import logo from "../../assets/icons/origin.png";
+import logo from "../../assets/icons/Origin.png";
 const Navbar = () => {
   const navigate = useNavigate();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
